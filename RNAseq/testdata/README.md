@@ -33,7 +33,8 @@ Rscript-3.5.1 single_edgeR.r SHAM TAC
 
 ### Output  
 The R script will generate a few output files.  
-1.  de_SHAM_TAC.txt  
+
+de_SHAM_TAC.txt  
 This is the output of differential gene expression test performed by edgeR. The columns are:  
 | Column | Description            |
 | ------ | -----------            |
