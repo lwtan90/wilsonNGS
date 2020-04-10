@@ -39,7 +39,7 @@ This is the output of differential gene expression test performed by edgeR. The 
 
 
 | Column | Description            |
-| ------ | -----------            |
+| :------: | -----------            |
 | 1      | GENCODE Gene ID        |
 | 2      | log2FC (Group2/Group1) |
 | 3 | logCPM across the samples |
