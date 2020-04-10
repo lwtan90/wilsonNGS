@@ -57,3 +57,6 @@ One of the plots that we can look at is scatterplot that represents the correlat
 ![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png )
 
 
+3. Volcano Plot (volcanoplot_withtext_SHAM_TAC.png)  
+
+![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png )
