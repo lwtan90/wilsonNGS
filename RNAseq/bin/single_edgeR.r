@@ -90,7 +90,6 @@ k21$biotype = gene2biotype$biotype[match(rownames(k21),gene2biotype$id)]
 k21 = cbind(k21,fpkm[match(rownames(k21),rownames(fpkm)),])
 write.table(k21,file=outputfile,sep="\t",quote=FALSE)
 
-k
 
 ##This step is to perform motif analysis
 delist = k21
