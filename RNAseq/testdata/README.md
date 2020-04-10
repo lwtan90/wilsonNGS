@@ -34,7 +34,7 @@ Rscript-3.5.1 single_edgeR.r SHAM TAC
 ### Output  
 The R script will generate a few output files.  
 
-1. de_SHAM_TAC.txt
+1. de_SHAM_TAC.txt  
 This is the output of differential gene expression test performed by edgeR. Although there is no definite cut-off to define significance, I use abs(log2FC)>0.5, FDR<0.05 and avg FPKM>1 as a cut-off for significant DEGs. The columns are:  
 
 
@@ -49,4 +49,11 @@ This is the output of differential gene expression test performed by edgeR. Alth
 | 7 | Gene Symbol / HGNC |
 | 8 | Biotype |
 | 9-whatever | FPKM of all samples |
+
+
+2. Scatterplot (scatterplot_withtext_SHAM_TAC.png)  
+One of the plots that we can look at is scatterplot that represents the correlation between the two conditions (SHAM and TAC). The x-axis in the graph below shows average FPKM of SHAM cardiomyocytes and the y-axis shows average FPKM of TAC cardiomyocytes.  
+
+![alt text] (https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png "scatterplot of Sham CM vs TAC CM")  
+
 
