@@ -54,6 +54,6 @@ This is the output of differential gene expression test performed by edgeR. Alth
 2. Scatterplot (scatterplot_withtext_SHAM_TAC.png)  
 One of the plots that we can look at is scatterplot that represents the correlation between the two conditions (SHAM and TAC). The x-axis in the graph below shows average FPKM of SHAM cardiomyocytes and the y-axis shows average FPKM of TAC cardiomyocytes.  
 
-![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png | width=100)
+![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png )
 
 
