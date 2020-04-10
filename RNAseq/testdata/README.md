@@ -1,7 +1,8 @@
 ### Differential Gene Expression Analysis between Mouse Sham and TAC RNA-seq
   
   
-Input file: countfile.txt (hard-coded for now)  
+#### Input  
+Input file: countfile.txt (hard-coded for now)      
 This file is a tab-delimited text file with 3 columns.  
 | Column   | Description |
 | -------- | ----------- |
