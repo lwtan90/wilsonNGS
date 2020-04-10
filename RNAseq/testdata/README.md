@@ -35,10 +35,13 @@ Rscript-3.5.1 single_edgeR.r SHAM TAC
 The R script will generate a few output files.  
 1.  de_SHAM_TAC.txt  
 This is the output of differential gene expression test performed by edgeR. The columns are:  
-| Column | Description |
-| ------ | ----------- |
-| 1 | GENCODE Gene ID |
-| 2 | log2FC (Group2/Group1) |
+| Column | Description            |
+| ------ | -----------            |
+| 1      | GENCODE Gene ID        |
+| 2      | log2FC (Group2/Group1) |
+
+
+
 | 3 | logCPM across the samples |
 | 4 | Test statistics (loglikelihodd) |
 | 5 | P-value |
