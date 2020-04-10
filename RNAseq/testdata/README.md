@@ -20,4 +20,15 @@ Example countfile.txt:
 | RMH3875_count.txt | RMH3875 | TAC |
 | RMH3877_count.txt | RMH3877 | SHAM |
 
+
+
+#### Command  
+I usualy run my R script on linux command line. You can also modify the script to make it work on Rstudio or any IDE.  
+The command line will require two user arguments for this particular script. These arguments are the sample groupings. In my case, it will be SHAM and TAC.  
+I am usually R version 3.5.1.  
+```
+Rscript-3.5.1 single_edgeR SHAM TAC
+```
   
+
+ 
