@@ -35,7 +35,7 @@ Rscript-3.5.1 single_edgeR.r SHAM TAC
 The R script will generate a few output files.  
 
 1. de_SHAM_TAC.txt
-This is the output of differential gene expression test performed by edgeR. The columns are:  
+This is the output of differential gene expression test performed by edgeR. Although there is no definite cut-off to define significance, I use abs(log2FC)>0.5, FDR<0.05 and avg FPKM>1 as a cut-off for significant DEGs. The columns are:  
 
 
 | Column | Description            |
