@@ -60,3 +60,9 @@ One of the plots that we can look at is scatterplot that represents the correlat
 3. Volcano Plot (volcanoplot_withtext_SHAM_TAC.png)  
 
 ![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png )
+
+4. GSEA analysis (using FGSEA R package)  
+Two files per pathway DB tested (GO_analysis.txt or GO.RData)  
+
+  
+
