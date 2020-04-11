@@ -100,6 +100,18 @@ down.target = delist$hgnc[ delist$logFC<0 ]
 up.target   = delist$hgnc[ delist$logFC>0 ]
 
 
+
+## This part per form GSEA analysis using R package FGSEA
+## If you don't want, then skip this part by commenting them out
+source("bin/FGSEA.R")
+ranks = k21$logFC
+names(ranks)=k21$hgnc
+ranks = ranks[!is.na(names(ranks))]
+
+##this is for mouse
+geneontology = FGSEA("data/pathDB/Mm.c5.symbol.Rdata",ranks,"GO")
+##End of GSEA
+
 gene = read.table("/mnt/projects/wlwtan/cardiac_epigenetics/pipeline/rnaseq_pipeline/resource/mm9/mm9_longest_tss.bed")
 target.gene = gene[ gene$V4 %in% down.target, 1:4]
 write.table(target.gene,file=beddown,sep="\t",quote=FALSE,row.names=F,col.names=F)
