@@ -200,14 +200,14 @@ Example countfile.txt:
 ### Command  
 I usualy run my R script on linux command line. You can also modify the script to make it work on Rstudio or any IDE.  
 The command line will require two user arguments for this particular script. These arguments are the sample groupings. In my case, it will be SHAM and TAC.  
-I am usually R version 3.5.1.  
+I am using R version 3.5.1.  
 ```
 Rscript-3.5.1 single_edgeR.r SHAM TAC
 ```
 
 <br />
   
-### R script (edgeR.r)  
+### R script (You can copy this into your RStudio if you are not running on linux like me. Dont use single_edgeR.r in that case.)  
 This is the skeleton of generic edgeR analysis. You can start with this script first and slowly add/edit according to your experimental designs.  
   
 
@@ -289,13 +289,12 @@ One of the plots that we can look at is scatterplot that represents the correlat
 <br />  
 
 ## Part 3: Pathway Enrichment Analysis  
-### Gene-set Enrichment Analysis (GSEA)  
+### 1. Gene-set Enrichment Analysis (GSEA)  
 ```
 Rscript-3.5.1 fgsea.r de_SHAM_TAC.txt
 ```  
 The analysis was done by using FGSEA R package.  
 GSEA analysis takes the logFC / test statistics / pvalue from all the genes in the dataset, and try to find the pathways which are differentially expressed collectively.  
-Two files per pathway DB tested (GO_analysis.txt or GO.RData).  
 
   
 Upregulated Pathways:  
@@ -331,7 +330,7 @@ Downregulated Pathways:
 <br/>
 <br/>  
   
-### Over-representation Analysis (Enrichment-based) Pathway analysis  
+### 2. Over-representation Analysis (Enrichment-based) Pathway analysis  
 ```
 Rscript-3.5.1 goseq.r de_SHAM_TAC.txt  
 ```
