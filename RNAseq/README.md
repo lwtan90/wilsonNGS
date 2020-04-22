@@ -234,7 +234,7 @@ write.table(k21,file="de_SHAM_TAC.txt",sep="\t",quote=FALSE)
 ```
   
 
-### Output  
+### Output of single_edgeR.r   
 The R script will generate a few output files.  
 
 1. de_SHAM_TAC.txt  
@@ -257,12 +257,19 @@ This is the output of differential gene expression test performed by edgeR. Alth
 2. Scatterplot (scatterplot_withtext_SHAM_TAC.png)  
 One of the plots that we can look at is scatterplot that represents the correlation between the two conditions (SHAM and TAC). The x-axis in the graph below shows average FPKM of SHAM cardiomyocytes and the y-axis shows average FPKM of TAC cardiomyocytes.  
 
-![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png )
+<p align="center">
+  <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/scatterplot_withtext_SHAM_TAC.png">
+</p>  
+
+
 
 
 3. Volcano Plot (volcanoplot_withtext_SHAM_TAC.png)  
 
-![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png )
+<p align="center">
+  <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png">
+</p>  
+<br />
 
   
   
