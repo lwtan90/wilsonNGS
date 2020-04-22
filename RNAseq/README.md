@@ -43,6 +43,12 @@ samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 java -jar trimmomatic-0.39.jar PE $F1 $F2 read1.fastq.gz read1.un.fastq.gz read2.fastq.gz read2.un.fastq.gz ILLUMINACLIP:illumina.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:4:28 MINLEN:100
 ```  
 
+Input files:  
+```  
+a. F1 = FASTQ File Read 1  
+b. F2 = FASTQ File Read 2  
+```  
+
 This command trim the reads:  
 a. base quality  
 b. adaptors / index  
