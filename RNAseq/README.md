@@ -225,7 +225,33 @@ One of the plots that we can look at is scatterplot that represents the correlat
 ![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png )
 
 4. GSEA analysis (using FGSEA R package)  
-Two files per pathway DB tested (GO_analysis.txt or GO.RData)  
-
+  
+Upregulated Pathways:  
+  
+| pathway | pval | padj | ES | NES |
+| :--- | :--: | :--: | :--: | :--: |
+| GO_COLLAGEN_TRIMER | 0 | 0.0079 | 0.8466 | 2.682 |
+| GO_EXTRACELLULAR_MATRIX_COMPONENT | 0 | 0.0079 | 0.7538 | 2.6497 |
+| GO_PROTEINACEOUS_EXTRACELLULAR_MATRIX | 0 | 0.0079 | 0.7161 | 2.6478 |
+| GO_EXTRACELLULAR_STRUCTURE_ORGANIZATION | 0 | 0.0079 | 0.7128 | 2.6383 |
+| GO_EXTRACELLULAR_MATRIX_BINDING | 0 | 0.0079 | 0.8044 | 2.6162 |
+| GO_EXTRACELLULAR_MATRIX_STRUCTURAL_CONSTITUENT | 0 | 0.0079 | 0.8255 | 2.6064 |
+| GO_EXTRACELLULAR_MATRIX | 0 | 0.0079 | 0.6939 | 2.6011 |
+| GO_BASEMENT_MEMBRANE | 0 | 0.0079 | 0.7501 | 2.5799 |
+| GO_COLLAGEN_BINDING | 0 | 0.0079 | 0.7807 | 2.564 |
+  
+  
+Downregulated Pathways:  
   
 
+| pathway | pval | padj | ES | NES |
+| :--- | :--: | :--: | :--: | :--: |
+| GO_MITOCHONDRIAL_ATP_SYNTHESIS_COUPLED_PROTON_TRANSPORT | 0 | 0.0143 | -0.7478 | -2.3421 |
+| GO_PROTON_TRANSPORTING_ATP_SYNTHASE_COMPLEX | 0 | 0.0148 | -0.6904 | -2.2669 |
+| GO_BRANCHED_CHAIN_AMINO_ACID_METABOLIC_PROCESS | 0 | 0.0148 | -0.6333 | -2.0795 |
+| GO_PHOTORECEPTOR_CELL_MAINTENANCE | 0 | 0.016 | -0.5669 | -1.9882 |
+| GO_MALE_MEIOSIS | 0 | 0.016 | -0.5459 | -1.9145 |
+| GO_NADH_DEHYDROGENASE_ACTIVITY | 0 | 0.0172 | -0.6156 | -2.2153 |
+| GO_MITOCHONDRIAL_ELECTRON_TRANSPORT_NADH_TO_UBIQUINONE | 0 | 0.0179 | -0.6089 | -2.2264 |
+| GO_NADH_DEHYDROGENASE_COMPLEX | 0 | 0.0179 | -0.5823 | -2.1291 |
+| GO_FATTY_ACID_BETA_OXIDATION | 0 | 0.0183 | -0.4836 | -1.8241 |
