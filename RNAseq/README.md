@@ -228,6 +228,9 @@ One of the plots that we can look at is scatterplot that represents the correlat
   
 
 ### Gene-set Enrichment Analysis (GSEA)  
+```
+Rscript-3.5.1 fgsea.r de_SHAM_TAC.txt
+```  
 The analysis was done by using FGSEA R package.  
 GSEA analysis takes the logFC / test statistics / pvalue from all the genes in the dataset, and try to find the pathways which are differentially expressed collectively.  
 Two files per pathway DB tested (GO_analysis.txt or GO.RData).  
@@ -267,8 +270,10 @@ Downregulated Pathways:
 <br/>  
   
 ### Over-representation Analysis (Enrichment-based) Pathway analysis  
-The list of differentially expressed genes will be supplied to check for enrichment in a specific geneset or pathway or ontology.  
-The package used here is GOseq. Alternatively, there are also a couple of online free tools that you can use such as David / Enrichr.    
+```
+Rscript-3.5.1 goseq.r de_SHAM_TAC.txt  
+```
+The list of differentially expressed genes will be supplied to check for enrichment in a specific geneset or pathway or ontology. The package used here is GOseq. Alternatively, there are also a couple of online free tools that you can use such as David / Enrichr.    
 
 Ontology terms enriched in up-regulated genes:   
 
