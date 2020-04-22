@@ -49,6 +49,9 @@ a. F1 = FASTQ File Read 1
 b. F2 = FASTQ File Read 2  
 ```  
 
+The details on various parameters can be found [here](http://www.usadellab.org/cms/?page=trimmomatic).    
+
+  
 This command trim the reads:  
 a. base quality  
 b. adaptors / index  
