@@ -204,6 +204,32 @@ I am usually R version 3.5.1.
 ```
 Rscript-3.5.1 single_edgeR.r SHAM TAC
 ```
+
+<br />
+  
+### R script (edgeR.r)  
+This is the skeleton of generic edgeR analysis. You can start with this script first and slowly add/edit according to your experimental designs.  
+  
+
+```
+filelist = read.table("countfile.txt")
+names(filelist)=c("filename","sample","group")
+gene2biotype = read.table("/mnt/projects/wlwtan/cardiac_epigenetics/pipeline/rnaseq_pipeline/resource/mm9/mm9_gene2biotype.txt")  
+names(gene2biotype)=c("id","hgnc","biotype")  
+data = readDGE(file=filelist$filename,group=filelist$group,labels=filelist$sample)  
+design = model.matrix(~0+filelist$group)  
+y = DGEList(counts = as.matrix(filtered), group=filelist$group )  
+y = calcNormFactors(y)  
+y = estimateDisp(y, design)  
+fit = glmFit(y,design)
+lrt21 = glmLRT(fit,contrast=c(-1,1))  
+k21 = as.data.frame(topTags(lrt21,n=10000000))  
+k21$hgnc = gene2biotype$hgnc[match(rownames(k21),gene2biotype$id)]  
+k21$biotype = gene2biotype$biotype[match(rownames(k21),gene2biotype$id)]  
+write.table(k21,file="de_SHAM_TAC.txt",sep="\t",quote=FALSE)  
+
+
+```
   
 
 ### Output  
