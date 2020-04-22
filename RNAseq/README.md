@@ -224,7 +224,14 @@ One of the plots that we can look at is scatterplot that represents the correlat
 
 ![alt text](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/volcanoplot_withtext_SHAM_TAC.png )
 
-4. GSEA analysis (using FGSEA R package)  
+  
+  
+
+4. **Gene-set Enrichment Analysis (GSEA)**
+The analysis was done by using FGSEA R package.
+GSEA analysis takes the logFC / test statistics / pvalue from all the genes in the dataset, and try to find the pathways which are differentially expressed collectively.  
+Two files per pathway DB tested (GO_analysis.txt or GO.RData)  .
+
   
 Upregulated Pathways:  
   
@@ -255,3 +262,42 @@ Downregulated Pathways:
 | GO_MITOCHONDRIAL_ELECTRON_TRANSPORT_NADH_TO_UBIQUINONE | 0 | 0.0179 | -0.6089 | -2.2264 |
 | GO_NADH_DEHYDROGENASE_COMPLEX | 0 | 0.0179 | -0.5823 | -2.1291 |
 | GO_FATTY_ACID_BETA_OXIDATION | 0 | 0.0183 | -0.4836 | -1.8241 |
+
+  
+  
+5. Over-representation Analysis (Enrichment-based) Pathway analysis  
+The list of differentially expressed genes will be supplied to check for enrichment in a specific geneset or pathway or ontology.  
+The package used here is GOseq.  
+
+Ontology terms enriched in up-regulated genes:   
+| category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| GO_0030198 | 1.59289631513099e-29 | 58 | 165 | extracellular matrix organization | BP |
+| GO_0043062 | 7.25401577545077e-28 | 61 | 198 | extracellular structure organization | BP |
+| GO_0007155 | 7.52728027032633e-28 | 130 | 786 | cell adhesion | BP |
+| GO_0022610 | 1.89458381420028e-27 | 130 | 794 | biological adhesion | BP |
+| GO_0009653 | 1.3895959294514e-21 | 202 | 1808 | anatomical structure morphogenesis | BP |
+| GO_0016477 | 4.586619274943e-19 | 127 | 959 | cell migration | BP |
+| GO_0001525 | 4.8894400795615e-19 | 72 | 391 | angiogenesis | BP |
+| GO_0035295 | 5.83669120066987e-19 | 112 | 791 | tube development | BP |
+| GO_0035239 | 9.56339723145197e-19 | 99 | 657 | tube morphogenesis | BP |
+| GO_0048870 | 1.80505175084392e-18 | 130 | 1017 | cell motility | BP |
+| category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
+  
+  
+Ontology terms enriched in down-regulated genes:
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| GO_0044281 | 3.98227858592603e-08 | 71 | 1325 | small molecule metabolic process | BP |
+| GO_0006635 | 3.60003697030415e-07 | 11 | 58 | fatty acid beta-oxidation | BP |
+| GO_0016054 | 9.25408023716837e-07 | 17 | 154 | organic acid catabolic process | BP |
+| GO_0046395 | 9.25408023716837e-07 | 17 | 154 | carboxylic acid catabolic process | BP |
+| GO_0009062 | 1.15898676473624e-06 | 12 | 78 | fatty acid catabolic process | BP |
+| GO_0008016 | 1.25401426261223e-06 | 16 | 137 | regulation of heart contraction | BP |
+| GO_0043436 | 2.97533226290676e-06 | 40 | 668 | oxoacid metabolic process | BP |
+| GO_0006082 | 3.93851000867858e-06 | 40 | 676 | organic acid metabolic process | BP |
+| GO_0044242 | 4.12629854308222e-06 | 15 | 136 | cellular lipid catabolic process | BP |
+| GO_0072329 | 4.19219279151121e-06 | 12 | 88 | monocarboxylic acid catabolic process | BP |
+
+
+  
+
