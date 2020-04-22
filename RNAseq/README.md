@@ -283,8 +283,10 @@ Ontology terms enriched in up-regulated genes:
 | GO_0035295 | 5.83669120066987e-19 | 112 | 791 | tube development | BP |
 | GO_0035239 | 9.56339723145197e-19 | 99 | 657 | tube morphogenesis | BP |
 | GO_0048870 | 1.80505175084392e-18 | 130 | 1017 | cell motility | BP |
-| category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
+
+
   
+ 
   
 Ontology terms enriched in down-regulated genes:  
 
