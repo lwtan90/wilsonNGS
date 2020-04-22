@@ -1,5 +1,6 @@
 ## RNA-seq pipelines  
-<br/>
+<br/>  
+
 ![RNAseq](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/img/RNAseq_workflow.jpg )    
 <br/>
 <br/>
