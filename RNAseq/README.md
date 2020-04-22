@@ -218,6 +218,8 @@ gene2biotype = read.table("/mnt/projects/wlwtan/cardiac_epigenetics/pipeline/rna
 names(gene2biotype)=c("id","hgnc","biotype")  
 data = readDGE(file=filelist$filename,group=filelist$group,labels=filelist$sample)  
 design = model.matrix(~0+filelist$group)  
+filter = apply(data$counts,1,function(x) length(x[x>5])>=2)
+filtered = data$counts[ filter, ]
 y = DGEList(counts = as.matrix(filtered), group=filelist$group )  
 y = calcNormFactors(y)  
 y = estimateDisp(y, design)  
