@@ -83,10 +83,11 @@ Input files:
 ```
 a. read1.fastq.gz (trimmed fastq file R1)  
 b. read2.fastq.gz (trimmed fastq file R2)  
-c. $STARIND = indices required for the mapping of sequencing reads [read here for more details](https://github.com/alexdobin/STAR).  
+c. $STARIND = indices required for the mapping of sequencing reads.  
 
 ```
 
+The details on various parameters can be found [here](https://github.com/alexdobin/STAR).
   
 Running LOG:
 ```
@@ -94,4 +95,53 @@ Mar 13 23:10:09 ..... started STAR run
 Mar 13 23:10:10 ..... loading genome  
 Mar 13 23:11:59 ..... started mapping  
 Mar 14 02:11:40 ..... finished successfully  
+```
+
+  
+#### 3. Generation of RAW gene count using htseq-count
+```
+/mnt/software/bin/htseq-count -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt  
+```   
+
+Input files:
+```
+a. BAM file (sorted by read name / position )  
+b. GTF files  
+```
+
+Output file (you need this for most analysis)
+```
+Filename: count.txt (gene count needed for EdgeR / DESeq)  
+Format:  
+<Gene ID> <unnormalized count>  
+Example:
+ENSMUSG00000093369.1	0  
+ENSMUSG00000093370.1	3  
+ENSMUSG00000093371.1	15  
+ENSMUSG00000093373.1	0  
+ENSMUSG00000093374.1	0  
+__no_feature	9269724  
+__ambiguous	97362  
+__too_low_aQual	0  
+__not_aligned	0  
+__alignment_not_unique	3113139  
+
+```
+
+Running LOG:  
+```
+...  
+31700000 SAM alignment record pairs processed.  
+31800000 SAM alignment record pairs processed.  
+31900000 SAM alignment record pairs processed.  
+32000000 SAM alignment record pairs processed.  
+32100000 SAM alignment record pairs processed.  
+32200000 SAM alignment record pairs processed.  
+32300000 SAM alignment record pairs processed.  
+32400000 SAM alignment record pairs processed.  
+32500000 SAM alignment record pairs processed.  
+32600000 SAM alignment record pairs processed.  
+32700000 SAM alignment record pairs processed.  
+32800000 SAM alignment record pairs processed.  
+32889607 SAM alignment pairs processed.  
 ```
