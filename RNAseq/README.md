@@ -1,5 +1,8 @@
 ## RNA-seq pipelines  
-  
+<br/>
+![RNAseq](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/img/RNAseq_workflow.jpg )    
+<br/>
+<br/>
   
 This pipeline will take in paired-end FASTQ files, and produce gene count as output.  
 This is a skeleton for basic analysis.  
