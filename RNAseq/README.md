@@ -79,3 +79,19 @@ TrimmomaticPE: Completed successfully
 star --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn read1.fastq.gz read2.fastq.gz  
 ```  
 
+Input files:  
+```
+a. read1.fastq.gz (trimmed fastq file R1)  
+b. read2.fastq.gz (trimmed fastq file R2)  
+c. $STARIND = indices required for the mapping of sequencing reads [read here for more details](https://github.com/alexdobin/STAR).  
+
+```
+
+  
+Running LOG:
+```
+Mar 13 23:10:09 ..... started STAR run  
+Mar 13 23:10:10 ..... loading genome  
+Mar 13 23:11:59 ..... started mapping  
+Mar 14 02:11:40 ..... finished successfully  
+```
