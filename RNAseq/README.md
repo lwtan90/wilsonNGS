@@ -275,9 +275,20 @@ One of the plots that we can look at is scatterplot that represents the correlat
 <p align="center">
   <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/degene_heatmap_SHAM_TAC.png">
 </p>  
-<br />   
-  
+<br />  
 
+5. PCA analysis based on DEGs
+<p align="center">
+  <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/degenepca_SHAM_TAC.png">
+</p>
+<br />   
+
+  
+  
+<br />  
+<br />  
+
+## Part 3: Pathway Enrichment Analysis  
 ### Gene-set Enrichment Analysis (GSEA)  
 ```
 Rscript-3.5.1 fgsea.r de_SHAM_TAC.txt
