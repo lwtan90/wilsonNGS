@@ -271,7 +271,11 @@ One of the plots that we can look at is scatterplot that represents the correlat
 </p>  
 <br />
 
-  
+4. Unsupervised clustering based on DEGs  
+<p align="center">
+  <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/globalclustering_SHAM_TAC.png">
+</p>  
+<br />   
   
 
 ### Gene-set Enrichment Analysis (GSEA)  
