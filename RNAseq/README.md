@@ -2,8 +2,9 @@
   
   
 This pipeline will take in paired-end FASTQ files, and produce gene count as output.  
-
-
+This is a skeleton for basic analysis.  
+There are various added analysis described at the bottom of the page.  
+  
 
 ```  
 
@@ -32,4 +33,6 @@ samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 /mnt/software/bin/htseq-count -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt
 
 ```
+
+
 
