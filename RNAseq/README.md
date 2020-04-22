@@ -75,6 +75,7 @@ TrimmomaticPE: Completed successfully
 ``` 
    
 #### 2. Mapping of sequencing reads  
-
-
+```
+star --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn read1.fastq.gz read2.fastq.gz  
+```  
 
