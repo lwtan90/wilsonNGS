@@ -34,5 +34,38 @@ samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 
 ```
 
+  
+  
+## Detailed Description of the basic pipeline  
+#### 1. Trimming of the reads before mapping  
+
+```
+java -jar trimmomatic-0.39.jar PE $F1 $F2 read1.fastq.gz read1.un.fastq.gz read2.fastq.gz read2.un.fastq.gz ILLUMINACLIP:illumina.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:4:28 MINLEN:100
+```  
+
+This command trim the reads:  
+a. base quality  
+b. adaptors / index  
+
+Running LOG:  
+```
+Using Medium Clipping Sequence: 'AGATCGGAAGAGCACACGTCT'  
+Using Medium Clipping Sequence: 'CTGTCTCTTATACACATCT'  
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCT+AGATGTGTATAAGAGACAG'  
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCA'  
+Using Short Clipping Sequence: 'AGATCGGAAGAG'  
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'  
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAAC'  
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGA'  
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'  
+ILLUMINACLIP: Using 0 prefix pairs, 9 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences  
+Quality encoding detected as phred33  
+Input Read Pairs: 57690695 Both Surviving: 40872736 (70.85%) Forward Only Surviving: 9407255 (16.31%) Reverse Only Surviving: 1621021 (2.81%) Dropped: 5789683 (10.04%)  
+TrimmomaticPE: Completed successfully  
+
+``` 
+   
+#### 2. Mapping of sequencing reads  
+
 
 
