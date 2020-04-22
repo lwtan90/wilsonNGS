@@ -153,3 +153,14 @@ Running LOG:
 32800000 SAM alignment record pairs processed.  
 32889607 SAM alignment pairs processed.  
 ```
+  
+  
+## Running Differential Expression analysis using edgeR package 
+  
+  
+The differential analysis starts here:  
+```
+Rscript-3.5.1 edgeR.r <control group> < treatment group>  
+```
+
+
