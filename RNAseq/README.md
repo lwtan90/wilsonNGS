@@ -263,7 +263,8 @@ Downregulated Pathways:
 | GO_NADH_DEHYDROGENASE_COMPLEX | 0 | 0.0179 | -0.5823 | -2.1291 |
 | GO_FATTY_ACID_BETA_OXIDATION | 0 | 0.0183 | -0.4836 | -1.8241 |
 
-  
+<br/>
+<br/>  
   
 ### Over-representation Analysis (Enrichment-based) Pathway analysis  
 The list of differentially expressed genes will be supplied to check for enrichment in a specific geneset or pathway or ontology.  
