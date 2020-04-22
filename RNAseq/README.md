@@ -127,7 +127,15 @@ __not_aligned	0
 __alignment_not_unique	3113139  
 
 ```
-
+  
+Description of the last 5 lines of each files:  
+__no_feature: reads (or read pairs) which could not be assigned to any feature   
+__ambiguous:  reads (or read pairs) which could have been assigned to more than one feature  
+__too_low_aQual: reads (or read pairs) which were skipped due to the -a option  
+__not_aligned: reads (or read pairs) in the SAM file without alignment  
+__alignment_not_unique: reads (or read pairs) with more than one reported alignment.  
+  
+  
 Running LOG:  
 ```
 ...  
