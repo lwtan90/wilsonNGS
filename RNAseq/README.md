@@ -40,8 +40,11 @@ samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 ```
 
   
+<br/>  
   
-## Detailed Description of the basic pipeline  
+<br/>  
+  
+## Part 1: Detailed Description of the basic pipeline  
 #### 1. **Trimming of the reads before mapping**  
 
 ```
@@ -160,7 +163,9 @@ Running LOG:
 ```
   
   
-## Running Differential Expression analysis using edgeR package (using Mouse Sham vs TAC RNA-seq as example)  
+<br />  
+<br />  
+## Part 2: Running Differential Expression analysis using edgeR package (using Mouse Sham vs TAC RNA-seq as example)  
   
 
 The differential analysis starts here:  
