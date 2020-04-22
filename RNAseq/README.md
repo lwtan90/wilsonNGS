@@ -227,10 +227,10 @@ One of the plots that we can look at is scatterplot that represents the correlat
   
   
 
-4. **Gene-set Enrichment Analysis (GSEA)**
-The analysis was done by using FGSEA R package.
+4. **Gene-set Enrichment Analysis (GSEA)**  
+The analysis was done by using FGSEA R package.  
 GSEA analysis takes the logFC / test statistics / pvalue from all the genes in the dataset, and try to find the pathways which are differentially expressed collectively.  
-Two files per pathway DB tested (GO_analysis.txt or GO.RData)  .
+Two files per pathway DB tested (GO_analysis.txt or GO.RData).  
 
   
 Upregulated Pathways:  
@@ -270,6 +270,7 @@ The list of differentially expressed genes will be supplied to check for enrichm
 The package used here is GOseq.  
 
 Ontology terms enriched in up-regulated genes:   
+
 | category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | GO_0030198 | 1.59289631513099e-29 | 58 | 165 | extracellular matrix organization | BP |
@@ -285,7 +286,9 @@ Ontology terms enriched in up-regulated genes:
 | category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
   
   
-Ontology terms enriched in down-regulated genes:
+Ontology terms enriched in down-regulated genes:  
+
+| category | over_represented_pvalue | numDEInCat | numInCat | term | ontology |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | GO_0044281 | 3.98227858592603e-08 | 71 | 1325 | small molecule metabolic process | BP |
 | GO_0006635 | 3.60003697030415e-07 | 11 | 58 | fatty acid beta-oxidation | BP |
