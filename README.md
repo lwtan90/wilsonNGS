@@ -1,5 +1,4 @@
-<p align="center">
-# Wilson's Bioinformatics Notebook
-</p>
+
+# Wilson's Bioinformatics Notebook  
 # Started in March 2020
 # All the codes
