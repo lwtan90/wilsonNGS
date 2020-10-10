@@ -183,7 +183,7 @@ Running LOG:
 </details>  
 
 <br />  
-<br />  
+ 
   
 ## Part 2: Running Differential Expression analysis using edgeR package (using Mouse Sham vs TAC RNA-seq as example)  
 <details>  
@@ -305,7 +305,7 @@ One of the plots that we can look at is scatterplot that represents the correlat
 </details>  
   
 <br />  
-<br />  
+  
 
 ## Part 3: Pathway Enrichment Analysis  
 <details>  
@@ -349,7 +349,7 @@ Downregulated Pathways:
 | GO_FATTY_ACID_BETA_OXIDATION | 0 | 0.0183 | -0.4836 | -1.8241 |
 
 <br/>
-<br/>  
+  
   
 ### 2. Over-representation Analysis (Enrichment-based) Pathway analysis  
 ```
