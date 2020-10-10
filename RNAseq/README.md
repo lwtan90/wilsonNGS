@@ -309,7 +309,9 @@ One of the plots that we can look at is scatterplot that represents the correlat
 ## Part 3: Pathway Enrichment Analysis  
 <details>  
 <summary> Description of the Pathway analysis </summary>  
+
 ### 1. Gene-set Enrichment Analysis (GSEA)  
+
 ```
 Rscript-3.5.1 fgsea.r de_SHAM_TAC.txt
 ```  
@@ -351,6 +353,7 @@ Downregulated Pathways:
   
   
 ### 2. Over-representation Analysis (Enrichment-based) Pathway analysis  
+
 ```
 Rscript-3.5.1 goseq.r de_SHAM_TAC.txt  
 ```
