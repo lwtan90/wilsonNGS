@@ -9,33 +9,57 @@
 This pipeline will take in paired-end FASTQ files, and produce gene count as output.  
 This is a skeleton for basic analysis.  
 There are various added analysis described at the bottom of the page.  
+See [bin/rnaseq.sh]()  
+
   
 
 ```  
 
 #!/bin/bash
 
-#FASTQ FILE R1 $F1; R2 $F2;  
-F1=$1
-F2=$2
-SAMPLE=$3
+##INPUT ARGUMENT (DO NOT EDIT)
+##BASH DEFAULT USER ARGUMENT READING FROM COMMAND LINE
+SAMPLENAME=$1
+FASTQ_READ1=$2
+FASTQ_READ2=$3
+GENOME=$4
 
-##STAR alignment: align fastq files to genome
-###Parameters:
-STAR=/mnt/projects/rpd/apps/star-2.5.3a/bin/STAR  
-THREAD=1  
-STARIND=/mnt/projects/rpd/genomes/mm9/star  
-STARFASTA=/mnt/projects/rpd/genomes/mm9/mm9.fa  
-GTF=/mnt/projects/rpd/genomes/mm9/gtf/mm9_annotation.gtf  
+#AFTER TRIMMING (DO NOT EDIT)
+TF1=$SAMPLENAME"_1_val_1.fq.gz"
+TF2=$SAMPLENAME"_2_val_2.fq.gz"
 
-mkdir $SAMPLE
-cd $SAMPLE
+##EDIT DURING SETUP
+###TOOLS:
+TRIM=trim_galore
+STAR=/mnt/projects/rpd/apps/star-2.5.3a/bin/STAR
+HTSEQCOUNT=/mnt/software/bin/htseq-count
+SAMTOOLS=/mnt/bin/software
 
-java -jar /mnt/projects/wlwtan/cardiac_epigenetics/pipeline/trimmomatics/Trimmomatic-0.39/trimmomatic-0.39.jar PE $F1 $F2 read1.fastq.gz read1.un.fastq.gz read2.fastq.gz read2.un.fastq.gz ILLUMINACLIP:illumina.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:4:28 MINLEN:100
+###DATABASE/ANNOTATION:
+ADAPTOR=/mnt/projects/wlwtan/cardiac_epigenetics/foolab/jenny/mar2020/rnaseq/analysis_adaptor/illumina.fa
+STARIND="/mnt/projects/rpd/genomes/"$GENOME"/star"
+STARFASTA="/mnt/projects/rpd/genomes/"$GENOME"/"$GENOME".fa"
+GTF="/mnt/projects/rpd/genomes/"$GENOME"/gtf/"$GENOME"_annotation.gtf"
 
-$STAR --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn read1.fastq.gz read2.fastq.gz
-samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
-/mnt/software/bin/htseq-count -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt
+###PARAMETERS:
+THREAD=4
+
+
+##ACTUAL COMMANDS:
+
+mkdir $SAMPLENAME
+cd $SAMPLENAME
+
+## Trimming of adaptors and base quality
+$TRIM --fastqc --gzip --length 100 --paired $FASTQ_READ1 $FASTQ_READ2
+
+
+## STAR alignment
+$STAR --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn $TF1 $TF2
+
+## sort the bam files by name and count by htseq-count for EdgeR/DESeq analysis
+$SAMTOOLS sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
+$HTSEQCOUNT -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt
 
 ```
 
@@ -49,49 +73,35 @@ samtools sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 #### 1. **Trimming of the reads before mapping**  
 
 ```
-java -jar trimmomatic-0.39.jar PE $F1 $F2 read1.fastq.gz read1.un.fastq.gz read2.fastq.gz read2.un.fastq.gz ILLUMINACLIP:illumina.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:4:28 MINLEN:100
+$TRIM --fastqc --gzip --length 100 --paired $FASTQ_READ1 $FASTQ_READ2  
+
 ```  
 
 Input files:  
 ```  
-a. F1 = FASTQ File Read 1  
-b. F2 = FASTQ File Read 2  
+a. FASTQ_READ1 = FASTQ File Read 1  
+b. FASTQ_READ2 = FASTQ File Read 2  
 ```  
 
-The details on various parameters can be found [here](http://www.usadellab.org/cms/?page=trimmomatic).    
+
 
   
 This command trim the reads:  
 a. base quality  
 b. adaptors / index  
-
-Running LOG:  
-```
-Using Medium Clipping Sequence: 'AGATCGGAAGAGCACACGTCT'  
-Using Medium Clipping Sequence: 'CTGTCTCTTATACACATCT'  
-Using Long Clipping Sequence: 'CTGTCTCTTATACACATCT+AGATGTGTATAAGAGACAG'  
-Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCA'  
-Using Short Clipping Sequence: 'AGATCGGAAGAG'  
-Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'  
-Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAAC'  
-Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGA'  
-Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'  
-ILLUMINACLIP: Using 0 prefix pairs, 9 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences  
-Quality encoding detected as phred33  
-Input Read Pairs: 57690695 Both Surviving: 40872736 (70.85%) Forward Only Surviving: 9407255 (16.31%) Reverse Only Surviving: 1621021 (2.81%) Dropped: 5789683 (10.04%)  
-TrimmomaticPE: Completed successfully  
-
-``` 
+  
+  
    
 #### 2. **Mapping of sequencing reads**  
 ```
-star --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn read1.fastq.gz read2.fastq.gz  
+$STAR --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn $TF1 $TF2
 ```  
+
 
 Input files:  
 ```
-a. read1.fastq.gz (trimmed fastq file R1)  
-b. read2.fastq.gz (trimmed fastq file R2)  
+a. TF1 (trimmed fastq file R1)  
+b. TF2 (trimmed fastq file R2)  
 c. $STARIND = indices required for the mapping of sequencing reads.  
 
 ```
@@ -109,7 +119,7 @@ Mar 14 02:11:40 ..... finished successfully
   
 #### 3. **Generation of RAW gene count using htseq-count**
 ```
-/mnt/software/bin/htseq-count -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt  
+$SAMTOOLS sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 ```   
 
 Input files:
