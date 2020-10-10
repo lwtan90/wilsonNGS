@@ -181,8 +181,8 @@ Running LOG:
 ```
   
 </details>  
-
-<br />  
+  
+  
  
   
 ## Part 2: Running Differential Expression analysis using edgeR package (using Mouse Sham vs TAC RNA-seq as example)  
