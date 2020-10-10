@@ -224,9 +224,8 @@ The command line will require two user arguments for this particular script. The
 I am using R version 3.5.1.  
 ```
 Rscript-3.5.1 single_edgeR.r SHAM TAC
-```
+```  
 
-<br />
   
 ### R script (You can copy this into your RStudio if you are not running on linux like me. Dont use single_edgeR.r in that case.)  
 This is the skeleton of generic edgeR analysis. You can start with this script first and slowly add/edit according to your experimental designs.  
