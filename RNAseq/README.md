@@ -393,7 +393,13 @@ Ontology terms enriched in down-regulated genes:
   
   
 </details>  
-
-
   
+
+
+
+## Part 4: Kallisto analysis of RNA-seq dataset  
+<details>  
+<summary> Description of the Kallisto analysis </summary>  
+</details>  
+
 
