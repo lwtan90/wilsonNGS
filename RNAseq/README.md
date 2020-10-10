@@ -62,7 +62,7 @@ $HTSEQCOUNT -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF
 
 ```  
   
-Requirements / Dependencies:  
+## Requirements / Dependencies:  
 - STAR aligner  
 - samtools  
 - htseq-count  
