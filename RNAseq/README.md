@@ -303,7 +303,7 @@ One of the plots that we can look at is scatterplot that represents the correlat
 </p>  
 </details>  
   
-<br />  
+
   
 
 ## Part 3: Pathway Enrichment Analysis  
