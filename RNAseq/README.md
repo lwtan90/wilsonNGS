@@ -75,7 +75,6 @@ $HTSEQCOUNT -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF
  
 ## Part 1: Alignment of RNA-seq reads to Genome
 <details>  
-
 <summary> Description of the basic pipeline </summary>  
 
 #### 1. **Trimming of the reads before mapping**  
