@@ -11,7 +11,6 @@ This is a skeleton for basic analysis.
 There are various added analysis described at the bottom of the page.  
 See [bin/rnaseq.sh](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/bin/rnaseq.sh)  
 
-  
 
 ```  
 
@@ -61,12 +60,17 @@ $STAR --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Un
 $SAMTOOLS sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
 $HTSEQCOUNT -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF > count.txt
 
-```
-
+```  
   
-<br/>  
-  
-<br/>  
+Requirements / Dependencies:  
+- STAR aligner  
+- samtools  
+- htseq-count  
+- trim_galore  
+- R (version 3.5 and above)  
+- EdgeR  
+- DESeq2  
+ 
   
  
 ## Part 1: Detailed Description of the basic pipeline  
