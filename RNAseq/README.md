@@ -308,6 +308,8 @@ One of the plots that we can look at is scatterplot that represents the correlat
 <br />  
 
 ## Part 3: Pathway Enrichment Analysis  
+<details>  
+<summary> Description of the Pathway analysis </summary>  
 ### 1. Gene-set Enrichment Analysis (GSEA)  
 ```
 Rscript-3.5.1 fgsea.r de_SHAM_TAC.txt
@@ -388,6 +390,9 @@ Ontology terms enriched in down-regulated genes:
 | GO_0006082 | 3.93851000867858e-06 | 40 | 676 | organic acid metabolic process | BP |
 | GO_0044242 | 4.12629854308222e-06 | 15 | 136 | cellular lipid catabolic process | BP |
 | GO_0072329 | 4.19219279151121e-06 | 12 | 88 | monocarboxylic acid catabolic process | BP |
+  
+  
+</details>  
 
 
   
