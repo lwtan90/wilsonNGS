@@ -74,6 +74,10 @@ $HTSEQCOUNT -f bam -r name -s no -m union name_rnaseqtrimmedAligned.out.bam $GTF
   
  
 ## Part 1: Detailed Description of the basic pipeline  
+<details>  
+
+<summary> Part 1: Detailed Description of the basic pipeline </summary>  
+
 #### 1. **Trimming of the reads before mapping**  
 
 ```
@@ -177,7 +181,8 @@ Running LOG:
 32889607 SAM alignment pairs processed.  
 ```
   
-  
+</details>  
+
 <br />  
 <br />  
   
