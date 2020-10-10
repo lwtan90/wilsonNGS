@@ -9,7 +9,7 @@
 This pipeline will take in paired-end FASTQ files, and produce gene count as output.  
 This is a skeleton for basic analysis.  
 There are various added analysis described at the bottom of the page.  
-See [bin/rnaseq.sh]()  
+See [bin/rnaseq.sh](https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/bin/rnaseq.sh)  
 
   
 
