@@ -186,6 +186,9 @@ Running LOG:
 <br />  
   
 ## Part 2 Running Differential Expression analysis using edgeR package (using Mouse Sham vs TAC RNA-seq as example)  
+<details>  
+<summary> Description of EdgeR script </summary>  
+
   
 
 The differential analysis starts here:  
@@ -298,10 +301,8 @@ One of the plots that we can look at is scatterplot that represents the correlat
 5. PCA analysis based on DEGs
 <p align="center">
   <img height="400" src="https://github.com/lwtan90/wilsonNGS/blob/master/RNAseq/testdata/SHAMTAC/degenepca_SHAM_TAC.png">
-</p>
-<br />   
-
-  
+</p>  
+</details>  
   
 <br />  
 <br />  
