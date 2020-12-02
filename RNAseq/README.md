@@ -24,8 +24,8 @@ FASTQ_READ2=$3
 GENOME=$4
 
 #AFTER TRIMMING (DO NOT EDIT)
-TF1=$SAMPLENAME"_1_val_1.fq.gz"
-TF2=$SAMPLENAME"_2_val_2.fq.gz"
+TF1=$(echo $(basename $FASTQ_READ1) | sed 's/.fastq.gz//')"_val_1.fq.gz"
+TF2=$(echo $(basename $FASTQ_READ2) | sed 's/.fastq.gz//')"_val_2.fq.gz"
 
 ##EDIT DURING SETUP
 ###TOOLS:
@@ -52,9 +52,9 @@ cd $SAMPLENAME
 ## Trimming of adaptors and base quality
 $TRIM --fastqc --gzip --length 100 --paired $FASTQ_READ1 $FASTQ_READ2
 
-
 ## STAR alignment
-$STAR --runThreadN $THREAD --outFileNamePrefix rnaseqtrimmed --outSAMtype BAM Unsorted --genomeDir $STARIND --readFilesCommand zcat --readFilesIn $TF1 $TF2
+$STAR --runThreadN $THREAD --genomeDir $STARIND --readFilesCommand zcat --outFileNamePrefix RNASEQ --outSAMtype BAM Unsorted --readFilesIn $TF1 $TF2
+$STAR --runThreadN $THREAD --genomeDir $STARIND --sjdbFileChrStartEnd RNASEQSJ.out.tab --readFilesCommand zcat --outFileNamePrefix RNASEQ.2Pass --outSAMtype BAM Unsorted --readFilesIn $TF1 $TF2
 
 ## sort the bam files by name and count by htseq-count for EdgeR/DESeq analysis
 $SAMTOOLS sort -n rnaseqtrimmedAligned.out.bam name_rnaseqtrimmedAligned.out
