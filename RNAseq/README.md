@@ -404,4 +404,10 @@ Ontology terms enriched in down-regulated genes:
 <summary> Description of the Kallisto analysis </summary>  
 </details>  
 
+  
+# Various strategies in RNA-seq analysis  
+## Pathway analysis  
+### R package: topGO  
+Enrichment-based Gene Ontology analysis (similar to David).
+Link can found here : [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html)  
 
