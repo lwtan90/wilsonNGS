@@ -410,4 +410,29 @@ Ontology terms enriched in down-regulated genes:
 ### R package: topGO  
 Enrichment-based Gene Ontology analysis (similar to David).
 Link can found here : [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html)  
+```
+### Description 
+### 3 user arguments required:
+### 1. delist: a data frame with 3 columns named <gid><logFC><sig>. 
+### 2. status: up/down. #up means up-regulated genes
+### 3. genome: human - hg19 (unfortunately, hg38 not supported). mouse - mm9
+goseqRUN <- function(delist,status,genome)
+{
+	rownames(delist)=gsub("\\..*","",delist$gid)
+	isSigGene = delist$sig
+	if(status == "down"){
+		isSigGene[ delist$logFC>0 ] = FALSE
+	}else{
+		isSigGene[ delist$logFC<0 ] = FALSE
+	}
+
+	genes = as.integer(isSigGene)
+	names(genes)=rownames(delist)
+
+	pwf <- nullp(genes,genome,"ensGene")
+	GO.wall = goseq(pwf,genome,"ensGene",test.cats=c("GO:BP"))
+
+	return(GO.wall)
+}
+```  
 
