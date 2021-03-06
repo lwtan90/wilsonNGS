@@ -9,7 +9,8 @@ Disclaimer: I am not the creator of any of these packages.
 
 ## Packages    
 ### GOSeq  
-See bin/goseq.R [here](https://github.com/alexdobin/STAR).  
+See bin/goseq.R.  
+
 
 ### TopGO  
 ### ROAST  
