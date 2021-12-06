@@ -24,4 +24,76 @@ library(EnsDb.Rnorvegicus.v79) ## needed for one function (dont have to be exact
 library(BSgenome.Rnorvegicus.UCSC.rn6) ## needed for one function (dont have to be exacr, unless you are running chromvar)
 ```  
 
+This function takes in h5 file, fragment file, and sample label. It returns Seurat object with RNA and ATAC components.
+This function also assume that you have prepped the annotation variable in the step earlier.
+Note: Only run this function if you have multiome (not multi-omics, meaning the ATAC and GEX are generated separately).  
+```
+readARC <- function(h5file, fragfile, sample)
+{
+        # load the RNA and ATAC data
+        #"filtered_feature_bc_matrix.h5"
+        #"atac_fragments.tsv.gz"
+        counts <- Read10X_h5(h5file)
+        fragpath <- fragfile
+        obj <- CreateSeuratObject(
+                counts = counts$`Gene Expression`,
+                assay = "RNA"
+        )
+        # create ATAC assay and add it to the object
+        obj[["ATAC"]] <- CreateChromatinAssay(
+                counts = counts$Peaks,
+                sep = c(":", "-"),
+                fragments = fragpath,
+                annotation = annotation
+        )
+        DefaultAssay(obj) = "ATAC"
+        obj <- NucleosomeSignal(obj)
+        obj <- TSSEnrichment(obj)
+
+	## What are each of these
+        png(paste(sample,"QC_violin_seurat.png",sep="_"),width=3000,height=2000,res=300)
+        p1 <- VlnPlot(object=obj,features=c("nCount_RNA", "nFeature_RNA", "nCount_ATAC", "nFeature_ATAC","TSS.enrichment", "nucleosome_signal"),ncol=3,pt.size=0)
+        print(p1)
+        dev.off()
+
+	## The numbers here were set arbitrarily
+	## Better check the violin plots prior to setting numbers
+	## Questions: Does it matter if you set different threshold for different samples?
+        obj <- subset(
+                x = obj,
+                subset = nCount_ATAC < 30000 &
+                nCount_RNA < 20000 &
+                nCount_ATAC > 1000 &
+                nCount_RNA > 1000 &
+                nucleosome_signal < 2 &
+                TSS.enrichment > 1
+        )
+
+	## Perform peak-calling using macs after removing noise
+        peaks <- CallPeaks(obj, macs2.path = "macs2")
+
+        # remove peaks on nonstandard chromosomes and in genomic blacklist regions
+        peaks <- keepStandardChromosomes(peaks, pruning.mode = "coarse")
+
+        # quantify counts in each peak
+        macs2_counts <- FeatureMatrix(
+                fragments = Fragments(obj),
+                features = peaks,
+                cells = colnames(obj)
+        )
+
+        # create a new assay using the MACS2 peak set and add it to the Seurat object
+        obj[["peaks"]] <- CreateChromatinAssay(
+                counts = macs2_counts,
+                fragments = fragpath,
+                annotation = annotation
+        )
+
+        DefaultAssay(obj) = "RNA"
+        obj$samplename = rep(sample)
+        return(obj)
+}
+
+```  
+
 
