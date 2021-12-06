@@ -37,6 +37,10 @@ In the original tutorial by Sajita's lab, the loading of annotation seems straig
 
 I recommend an alternative method to load the gene annotation. It will be good if the annotation file (GTF) that you have supplied to the cellranger arc to be used in Seurat. Some organisms such as human and mouse are well curated by large consortium such as GENCODE. Therefore, it is in your best interest to supply cellranger with the updated annotations. On the other hand, some of the organism are less studied. Therefore, I recommend using alternative annotation files in the cellranger arc prior to Seurat analysis. Regardless, if you intend not to use the standard BSgenome and EnsDb package, use the lines below to load the annotation:  
 ```
+gene.coords = rtracklayer::import("genes.gtf") ## replace genes.gtf with any of your GTF file
+seqlevelsStyle(gene.coords) <- 'UCSC'
+annotation <- keepStandardChromosomes(gene.coords, pruning.mode = 'coarse')
+## This will be used for the next step! (annotation)
 ```  
 
 ### Reading 10x HDF5 input  
