@@ -32,8 +32,12 @@ In the original tutorial by Sajita's lab, the loading of annotation seems straig
 | Human | hg19 | EnsDb.Hsapiens.v75 | BSgenome.Hsapiens.UCSC.hg19 | Yes |
 | Mouse | mm10 | EnsDb.Mmusculus.v79 | BSgenome.Mmusculus.UCSC.mm10 | Yes |
 | Mouse | mm9 | EnsDb.Mmusculus.v75 | BSgenome.Mmusculus.UCSC.mm9 | Yes |
-| Rat | rn6 | EnsDb.Rnorvegicus.v79 | BSgenome.Rnorvegicus.UCSC.rn6 | Yes |
-| Rat | rn5 | EnsDb.Rnorvegicus.v75 | BSgenome.Rnorvegicus.UCSC.rn5 | Yes |  
+| Rat | rn6 | EnsDb.Rnorvegicus.v79 | BSgenome.Rnorvegicus.UCSC.rn6 | No |
+| Rat | rn5 | EnsDb.Rnorvegicus.v75 | BSgenome.Rnorvegicus.UCSC.rn5 | No |  
+
+I recommend an alternative method to load the gene annotation. It will be good if the annotation file (GTF) that you have supplied to the cellranger arc to be used in Seurat. Some organisms such as human and mouse are well curated by large consortium such as GENCODE. Therefore, it is in your best interest to supply cellranger with the updated annotations. On the other hand, some of the organism are less studied. Therefore, I recommend using alternative annotation files in the cellranger arc prior to Seurat analysis. Regardless, if you intend not to use the standard BSgenome and EnsDb package, use the lines below to load the annotation:  
+```
+```  
 
 ### Reading 10x HDF5 input  
 This function takes in h5 file, fragment file, and sample label. It returns Seurat object with RNA and ATAC components.
