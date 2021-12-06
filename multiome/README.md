@@ -11,3 +11,12 @@ Right now, the tutorial assumes the input files per sample to be:
 - fragment file (fragments.tsv.gz)  
 
 
+## Project 1: Differential GEX + ATAC analysis between two conditions  
+```
+library(Signac) ## needed for single-cell chromatin analysis
+library(Seurat) ## base package for single-cell analysis 
+library(ggplot2) ## for plotting
+library(JASPAR2020) ## needed for ChromVAR analysis
+library(TFBSTools) ## needed for ChromVAR analysis
+```  
+
