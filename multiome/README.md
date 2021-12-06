@@ -24,6 +24,9 @@ library(EnsDb.Rnorvegicus.v79) ## needed for one function (dont have to be exact
 library(BSgenome.Rnorvegicus.UCSC.rn6) ## needed for one function (dont have to be exacr, unless you are running chromvar)
 ```  
 
+### Preparing annotation  
+
+### Reading 10x HDF5 input  
 This function takes in h5 file, fragment file, and sample label. It returns Seurat object with RNA and ATAC components.
 This function also assume that you have prepped the annotation variable in the step earlier.
 Note: Only run this function if you have multiome (not multi-omics, meaning the ATAC and GEX are generated separately).  
