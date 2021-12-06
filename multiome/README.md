@@ -12,6 +12,8 @@ Right now, the tutorial assumes the input files per sample to be:
 
 
 ## Project 1: Differential GEX + ATAC analysis between two conditions  
+Loading required packages:  
+
 ```
 library(Signac) ## needed for single-cell chromatin analysis
 library(Seurat) ## base package for single-cell analysis 
@@ -21,6 +23,5 @@ library(TFBSTools) ## needed for ChromVAR analysis
 library(EnsDb.Rnorvegicus.v79) ## needed for one function (dont have to be exact, unless you are running chromvar)
 library(BSgenome.Rnorvegicus.UCSC.rn6) ## needed for one function (dont have to be exacr, unless you are running chromvar)
 ```  
-
 
 
