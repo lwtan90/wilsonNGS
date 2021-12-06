@@ -18,5 +18,9 @@ library(Seurat) ## base package for single-cell analysis
 library(ggplot2) ## for plotting
 library(JASPAR2020) ## needed for ChromVAR analysis
 library(TFBSTools) ## needed for ChromVAR analysis
+library(EnsDb.Rnorvegicus.v79) ## needed for one function (dont have to be exact, unless you are running chromvar)
+library(BSgenome.Rnorvegicus.UCSC.rn6) ## needed for one function (dont have to be exacr, unless you are running chromvar)
 ```  
+
+
 
