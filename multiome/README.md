@@ -27,7 +27,7 @@ library(BSgenome.Rnorvegicus.UCSC.rn6) ## needed for one function (dont have to 
 ### Preparing annotation  
 In the original tutorial by Sajita's lab, the loading of annotation seems straightforward. You just require the standard package from EnsDb and BSgenome for the organism of interest. I have listed the relevant packages below (you can find the rest of the organism online):  
 | Organism | Genome Build | EnsDb | BSGenome | Tested by Myself |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | Human | hg38 | EnsDb.Hsapiens.v86 | BSgenome.Hsapiens.UCSC.hg38 | No |
 | Human | hg19 | EnsDb.Hsapiens.v75 | BSgenome.Hsapiens.UCSC.hg19 | Yes |
 | Mouse | mm10 | EnsDb.Mmusculus.v79 | BSgenome.Mmusculus.UCSC.mm10 | Yes |
