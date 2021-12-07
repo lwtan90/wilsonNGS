@@ -67,7 +67,10 @@ readARC <- function(h5file, fragfile, sample)
                 annotation = annotation
         )
         DefaultAssay(obj) = "ATAC"
+
+	## Question: How was this calculated?
         obj <- NucleosomeSignal(obj)
+	## Question: How was this calculated?
         obj <- TSSEnrichment(obj)
 
 	## What are each of these
