@@ -69,14 +69,16 @@ readARC <- function(h5file, fragfile, sample)
         DefaultAssay(obj) = "ATAC"
 
 	## Question: How was this calculated?  
-
-	## Calculate the strength of the nucleosome signal per cell. Computes the ratio of fragments between 147 bp and 294 bp (mononucleosome) to fragments < 147 bp (nucleosome-free)  
+	## Calculate the strength of the nucleosome signal per cell.
+	##Computes the ratio of fragments between 147 bp and 294 bp (mononucleosome) to fragments < 147 bp (nucleosome-free)  
 
         obj <- NucleosomeSignal(obj)
 
 	## Question: How was this calculated?  
-	##The reads around a reference set of TSSs are collected to form an aggregate distribution of reads centered on the TSSs and extending to 2000 bp in either direction (for a total of 4000bp). This distribution is then normalized by taking the average read depth in the 100 bps at each of the end flanks of the distribution (for a total of 200bp of averaged data) and calculating a fold change at each position over that average read depth.  
-
+	## The reads around a reference set of TSSs are collected to form an aggregate distribution of reads centered on the TSSs
+	## and extending to 2000 bp in either direction (for a total of 4000bp). This distribution is then normalized by taking the
+	## average read depth in the 100 bps at each of the end flanks of the distribution (for a total of 200bp of averaged data)
+	## and calculating a fold change at each position over that average read depth.  
         obj <- TSSEnrichment(obj)
 
 	## What are each of these
